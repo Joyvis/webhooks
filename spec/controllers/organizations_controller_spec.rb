@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe OrganizationsController, type: :controller do
+RSpec.describe OrganizationsController, type: %i[controller auth] do
   describe 'GET #show' do
     context 'when organization exists' do
       let!(:organization) { create(:organization) }

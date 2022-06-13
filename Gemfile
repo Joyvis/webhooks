@@ -19,7 +19,7 @@ gem 'turbolinks', '~> 5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -28,6 +28,12 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'jsonapi-serializer', '~> 2.2'
+
+# gem that validates and generate json web tokens
+gem 'jwt', '~> 1.5', '>= 1.5.4'
+
+# gem that manages and allow requests from external services
+gem 'rack-cors', '~> 0.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,4 +60,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # gem that calculates the test coverage and helps to see what part of the code are not being covered
+  gem 'simplecov'
 end
