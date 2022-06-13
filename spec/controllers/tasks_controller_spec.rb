@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe TasksController, type: :controller do
+RSpec.describe TasksController, type: %i[controller auth] do
   describe 'GET #index' do
     let!(:project1) { create(:project) }
     let!(:project2) { create(:project) }

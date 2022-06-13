@@ -30,6 +30,17 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
+  # TODO: we are using controller specs intead of request specs, because of that
+  # we can't send headers in the requests, so I created the following metadata
+  # in order to keep our authentication flow
+  # See more in spec/support/controller_helpers.rb
+
+  config.before(:each, type: :auth) do
+    request.headers['Authorization'] = "Bearer #{bearer_token}"
+  rescue NameError
+    nil
+  end
+
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
@@ -38,7 +49,6 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be

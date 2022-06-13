@@ -8,5 +8,6 @@ end
 
 RSpec.configure do |config|
   config.include ControllerTestHelpers, type: :controller
+  config.include ControllerTestHelpers, type: :auth
   config.include ActiveSupport::Testing::TimeHelpers, type: :controller
 end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ProjectsController, type: :controller do
+RSpec.describe ProjectsController, type: %i[controller auth] do
   describe 'GET #index' do
     let!(:organization1) { create(:organization) }
     let!(:organization2) { create(:organization) }
